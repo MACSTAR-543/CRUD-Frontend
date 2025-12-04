@@ -23,7 +23,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
 
 
 
-## Products
+## ✅ Products Endpoints
 + GET /products - Retrieve all products
 
 + POST /products - Create new product
@@ -93,3 +93,5 @@ Frontend: Static hosting (GitHub Pages, Netlify, Vercel, etc.)
 + Dashboard Analytics - Real-time statistics from API data
 
 + Search & Filter - Server-side data manipulation
+
+ ### ✅ Suppliers Endpoints
