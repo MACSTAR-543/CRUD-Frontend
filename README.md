@@ -32,7 +32,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
   
 +DELETE /products/:id - Delete product
 
-## Suppliers
+## ✅ Suppliers
 + GET /suppliers - Retrieve all suppliers
   
 + POST /suppliers - Create new supplier
@@ -41,7 +41,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
   
 + DELETE /suppliers/:id - Delete supplier
 
-# Orders
+## ✅ Orders
 + GET /orders - Retrieve all orders
 + POST /orders - Create new order
 
