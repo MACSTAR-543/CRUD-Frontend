@@ -3,7 +3,25 @@
 StockSync Pro is a modern inventory management system frontend that connects to a deployed RESTful API backend for performing full CRUD operations on products, suppliers, and orders.
 
 ## 🔗 API Endpoints Used
-### Base URL = https://crud-api-4-cncd.onrender.com/api
+### 🔧 Live Backend API: https://crud-api-4-cncd.onrender.com/api
+### 🌐 Live Frontend:
+
+## Testing API Connection:
+1. Open browser DevTools (F12)
+
+2. Go to Network tab
+
+3. Refresh the frontend page
+
+4. See real API calls to:
+
+* https://crud-api-4-cncd.onrender.com/api/products
+
+* https://crud-api-4-cncd.onrender.com/api/suppliers
+
+* https://crud-api-4-cncd.onrender.com/api/orders
+
+
 
 ## Products
 + GET /products - Retrieve all products
