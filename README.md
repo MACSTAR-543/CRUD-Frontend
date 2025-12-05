@@ -6,22 +6,6 @@ StockSync Pro is a modern inventory management system frontend that connects to 
 ### 🔧 Live Backend API: https://crud-api-4-cncd.onrender.com
 ### 🌐 Live Frontend: https://macstar-543.github.io/CRUD-Frontend/
 
-## Testing API Connection:
-1. Open browser DevTools (F12)
-
-2. Go to Network tab
-
-3. Refresh the frontend page
-
-4. See real API calls to:
-
-* https://crud-api-4-cncd.onrender.com/api/products
-
-* https://crud-api-4-cncd.onrender.com/api/suppliers
-
-* https://crud-api-4-cncd.onrender.com/api/orders
-
-
 
 ## ✅ Products Endpoints
 + GET /products - Retrieve all products
@@ -32,7 +16,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
   
 +DELETE /products/:id - Delete product
 
-## ✅ Suppliers
+## ✅ Suppliers Endpoints
 + GET /suppliers - Retrieve all suppliers
   
 + POST /suppliers - Create new supplier
@@ -41,7 +25,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
   
 + DELETE /suppliers/:id - Delete supplier
 
-## ✅ Orders
+## ✅ Orders Endpoints
 + GET /orders - Retrieve all orders
 + POST /orders - Create new order
 
@@ -76,7 +60,7 @@ Screenshot 8:
 <img width="1166" height="215" alt="Screenshot 2025-12-05 005752" src="https://github.com/user-attachments/assets/a9c80897-7cf6-4609-9541-a9e9087ea025" />
 
 ## 🌐 Deployment Information
-Frontend: Static hosting (GitHub Pages, Netlify, Vercel, etc.)
+Frontend: Static hosting (GitHub Pages)
 + Backend: Deployed on Render.com (https://crud-api-4-cncd.onrender.com)
 
 + Database: MongoDB Atlas (via backend)
@@ -94,4 +78,4 @@ Frontend: Static hosting (GitHub Pages, Netlify, Vercel, etc.)
 
 + Search & Filter - Server-side data manipulation
 
- ### ✅ Suppliers Endpoints
+ 
