@@ -14,7 +14,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
 
 + PUT /products/:id - Update existing product
   
-+DELETE /products/:id - Delete product
++ DELETE /products/:id - Delete product
 
 ## ✅ Suppliers Endpoints
 + GET /suppliers - Retrieve all suppliers
