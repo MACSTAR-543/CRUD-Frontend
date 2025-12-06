@@ -72,6 +72,9 @@ function setupEventListeners() {
     document.getElementById('sidebar-toggle').addEventListener('click', toggleSidebar);
     document.getElementById('mobile-menu-toggle').addEventListener('click', toggleMobileMenu);
     
+    // Sidebar overlay (mobile)
+    document.getElementById('sidebar-overlay').addEventListener('click', closeMobileMenu);
+    
     // Theme toggle
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
     
@@ -133,6 +136,19 @@ function setupEventListeners() {
     
     // Global search
     document.getElementById('global-search')?.addEventListener('input', performGlobalSearch);
+    
+    // Close mobile menu when clicking outside on mobile
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth < 992) {
+            const sidebar = document.getElementById('sidebar');
+            const mobileToggle = document.getElementById('mobile-menu-toggle');
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(e.target) && 
+                !mobileToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        }
+    });
 }
 
 // Navigation
@@ -168,8 +184,7 @@ function navigateToSection(sectionId) {
         
         // Close mobile menu if open
         if (window.innerWidth < 992) {
-            document.getElementById('sidebar').classList.remove('active');
-            document.getElementById('mobile-menu-toggle').setAttribute('aria-expanded', 'false');
+            closeMobileMenu();
         }
     }
 }
@@ -211,8 +226,35 @@ function updateSidebarToggleIcon() {
 
 function toggleMobileMenu() {
     const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
     const isActive = sidebar.classList.toggle('active');
+    
+    if (overlay) {
+        overlay.style.display = isActive ? 'block' : 'none';
+    }
+    
     document.getElementById('mobile-menu-toggle').setAttribute('aria-expanded', isActive);
+    
+    // Prevent body scroll when sidebar is open
+    if (isActive) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    
+    sidebar.classList.remove('active');
+    
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+    
+    document.getElementById('mobile-menu-toggle').setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
 }
 
 // Theme Functions
