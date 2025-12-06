@@ -28,9 +28,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
 ## ✅ Orders Endpoints
 + GET /orders - Retrieve all orders
 + POST /orders - Create new order
-
 + PUT /orders/:id - Update existing order
-
 + DELETE /orders/:id - Delete order
 
 # 🖼️ Screenshots of Code Using Deployed Backend
@@ -77,5 +75,28 @@ Frontend: Static hosting (GitHub Pages)
 + Dashboard Analytics - Real-time statistics from API data
 
 + Search & Filter - Server-side data manipulation
+
+  ## 📱 Application Screens
+
+### Products Management
+- View all products with SKU, name, price, stock
+- Add new products with validation
+- Edit existing products
+- Delete products with confirmation
+- Stock status indicators (In Stock, Low Stock, Out of Stock)
+
+### Suppliers Management  
+- View all suppliers with contact information
+- Add new suppliers
+- Edit supplier details
+- Delete suppliers
+
+### Orders Management
+- View all orders with supplier, items, total, and status
+- Create new orders with multiple items
+- Select products and suppliers from dropdowns
+- Auto-calculate order totals
+- View order status
+- Delete orders
 
  
