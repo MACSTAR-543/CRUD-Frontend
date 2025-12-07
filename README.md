@@ -1,4 +1,5 @@
-t# StockSync Pro - Frontend Documentation
+# StockSync Pro - Frontend Documentation
+
 ## 📋 Overview
 StockSync Pro is a modern inventory management system frontend that connects to a deployed RESTful API backend for performing full CRUD operations on products, suppliers, and orders.
 
@@ -115,7 +116,7 @@ This confirms the frontend is configured to use the deployed backend on Render.c
 <img width="1166" height="215" alt="Screenshot 2025-12-05 005752" src="https://github.com/user-attachments/assets/a9c80897-7cf6-4609-9541-a9e9087ea025" />
 
 ## 🌐 Deployment Information
-Frontend: Static hosting (GitHub Pages)
+Frontend: Static hosting (GitHub Pages and vercel)
 + Backend: Deployed on Render.com (https://crud-api-4-cncd.onrender.com)
 
 + Database: MongoDB Atlas (via backend)
