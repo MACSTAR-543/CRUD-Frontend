@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSync Pro | Inventory Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-boxes-stacked logo-icon" aria-hidden="true"></i>
+                    <div class="logo-text">
+                        <h1>StockSync</h1>
+                        <span class="logo-subtitle">PRO</span>
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle" aria-hidden="true"></i>
+                    </div>
+                    <div class="user-info">
+                        <h3>Mia Cabanza</h3>
+                        <p>Inventory Manager</p>
+                    </div>
+                    <button class="theme-toggle" id="theme-toggle" title="Toggle dark/light theme" aria-label="Toggle theme">
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-menu">
+                    <li>
+                        <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                            <i class="fas fa-chart-pie" aria-hidden="true"></i>
+                            <span>Dashboard</span>
+                            <span class="nav-badge" id="dashboard-badge"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#products" class="nav-link" data-section="products">
+                            <i class="fas fa-box" aria-hidden="true"></i>
+                            <span>Products</span>
+                            <span class="nav-badge" id="products-badge"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#suppliers" class="nav-link" data-section="suppliers">
+                            <i class="fas fa-truck" aria-hidden="true"></i>
+                            <span>Suppliers</span>
+                            <span class="nav-badge" id="suppliers-badge"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#orders" class="nav-link" data-section="orders">
+                            <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+                            <span>Orders</span>
+                            <span class="nav-badge" id="orders-badge"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <div class="status-indicator">
+                        <span class="status-dot online"></span>
+                        <span>API Status</span>
+                    </div>
+                    <div class="api-status" id="api-status">Checking...</div>
+                </div>
+                <button class="sidebar-toggle" id="sidebar-toggle" title="Toggle sidebar visibility" aria-label="Toggle sidebar">
+                    <i class="fas fa-angle-double-left" aria-hidden="true"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Sidebar Overlay for Mobile -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content" role="main">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle" title="Toggle mobile menu" aria-label="Toggle mobile menu" aria-expanded="false">
+                        <i class="fas fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <div class="breadcrumb">
+                        <span id="current-page">Dashboard</span>
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        <span id="current-subpage">Overview</span>
+                    </div>
+                </div>
+                <div class="top-bar-right">
+                    <div class="search-box">
+                        <label for="global-search" class="sr-only">Search inventory</label>
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input type="text" id="global-search" name="global-search" placeholder="Search..." title="Search across entire inventory" aria-label="Global search inventory">
+                    </div>
+                    <button class="btn-quick-action" id="quick-add" title="Open quick add menu" aria-label="Quick add">
+                        <i class="fas fa-plus" aria-hidden="true"></i> Quick Add
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="section active" aria-labelledby="dashboard-title">
+                    <div class="section-header">
+                        <h2 id="dashboard-title"><i class="fas fa-chart-pie" aria-hidden="true"></i> Dashboard Overview</h2>
+                        <p>Welcome back! Here's what's happening with your inventory today.</p>
+                        <div class="header-actions">
+                            <button class="btn btn-primary" id="refresh-dashboard" title="Refresh dashboard data" aria-label="Refresh dashboard">
+                                <i class="fas fa-sync-alt" aria-hidden="true"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card stat-primary">
+                            <div class="stat-icon">
+                                <i class="fas fa-box" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Products</h3>
+                                <div class="stat-value" id="total-products">0</div>
+                                <div class="stat-change">
+                                    <i class="fas fa-database" aria-hidden="true"></i> Inventory
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-success">
+                            <div class="stat-icon">
+                                <i class="fas fa-truck" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Active Suppliers</h3>
+                                <div class="stat-value" id="total-suppliers">0</div>
+                                <div class="stat-change">
+                                    <i class="fas fa-users" aria-hidden="true"></i> Vendors
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-warning">
+                            <div class="stat-icon">
+                                <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Pending Orders</h3>
+                                <div class="stat-value" id="total-orders">0</div>
+                                <div class="stat-change">
+                                    <i class="fas fa-clock" aria-hidden="true"></i> Processing
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-danger">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Low Stock</h3>
+                                <div class="stat-value" id="low-stock">0</div>
+                                <div class="stat-change">
+                                    <i class="fas fa-bell" aria-hidden="true"></i> Needs Attention
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions-grid">
+                        <div class="quick-action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-box" aria-hidden="true"></i>
+                            </div>
+                            <h4>Add Product</h4>
+                            <p>Add new items to inventory</p>
+                            <button class="btn btn-outline quick-product-btn" title="Quickly add a new product" aria-label="Quick add product">
+                                Quick Add
+                            </button>
+                        </div>
+                        <div class="quick-action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-truck" aria-hidden="true"></i>
+                            </div>
+                            <h4>New Order</h4>
+                            <p>Create purchase order</p>
+                            <button class="btn btn-outline quick-order-btn" title="Create new purchase order" aria-label="Create new order">
+                                Create Now
+                            </button>
+                        </div>
+                        <div class="quick-action-card">
+                            <div class="action-icon">
+                                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                            </div>
+                            <h4>Add Supplier</h4>
+                            <p>Add new vendor</p>
+                            <button class="btn btn-outline quick-supplier-btn" title="Quickly add new supplier" aria-label="Quick add supplier">
+                                Add Supplier
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Products Section -->
+                <section id="products" class="section" aria-labelledby="products-title">
+                    <div class="section-header">
+                        <h2 id="products-title"><i class="fas fa-box" aria-hidden="true"></i> Products</h2>
+                        <p>Manage your product inventory</p>
+                        <div class="header-actions">
+                            <div class="search-box">
+                                <label for="product-search" class="sr-only">Search products</label>
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <input type="text" id="product-search" name="product-search" placeholder="Search products..." title="Search products" aria-label="Search products">
+                            </div>
+                            <button class="btn btn-primary" id="show-product-form" title="Add new product" aria-label="Add new product">
+                                <i class="fas fa-plus" aria-hidden="true"></i> Add Product
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Form -->
+                    <div class="form-container" id="product-form-container">
+                        <div class="form-header">
+                            <h3><i class="fas fa-edit" aria-hidden="true"></i> <span id="product-form-title">Add New Product</span></h3>
+                            <button class="btn btn-text" id="cancel-product-form" title="Cancel product form" aria-label="Cancel form">
+                                <i class="fas fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <form id="product-form" class="animated-form" aria-label="Product form">
+                            <input type="hidden" id="product-id" name="product-id">
+                            
+                            <div class="form-group">
+                                <label for="sku" class="required">SKU *</label>
+                                <input type="text" id="sku" name="sku" required placeholder="Enter product SKU" title="Product SKU" aria-label="Product SKU" aria-required="true">
+                                <div class="error" id="sku-error" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="name" class="required">Product Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter product name" title="Product name" aria-label="Product name" aria-required="true">
+                                <div class="error" id="name-error" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="price" class="required">Price ($) *</label>
+                                    <input type="number" id="price" name="price" step="0.01" min="0" required placeholder="0.00" title="Product price" aria-label="Product price" aria-required="true">
+                                    <div class="error" id="price-error" role="alert"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="stock" class="required">Stock *</label>
+                                    <input type="number" id="stock" name="stock" min="0" required placeholder="0" title="Stock quantity" aria-label="Stock quantity" aria-required="true">
+                                    <div class="error" id="stock-error" role="alert"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" name="category" title="Product category" aria-label="Product category">
+                                    <option value="">Select category</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Clothing">Clothing</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Home & Garden">Home & Garden</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="save-product" title="Save product" aria-label="Save product">
+                                    <i class="fas fa-save" aria-hidden="true"></i> Save Product
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="cancel-product-form-bottom" title="Cancel" aria-label="Cancel">
+                                    <i class="fas fa-times" aria-hidden="true"></i> Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Products Table -->
+                    <div class="table-wrapper">
+                        <div class="table-header">
+                            <div class="table-info">
+                                Showing <span id="product-count">0</span> products
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="data-table" id="products-table" aria-label="Products list">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">SKU</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="products-table-body">
+                                    <!-- Products loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="loading" id="products-loading">
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading products...
+                        </div>
+                        
+                        <div class="empty-state" id="products-empty">
+                            <i class="fas fa-box-open" aria-hidden="true"></i>
+                            <h4>No products found</h4>
+                            <p>Add your first product to get started!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Suppliers Section -->
+                <section id="suppliers" class="section" aria-labelledby="suppliers-title">
+                    <div class="section-header">
+                        <h2 id="suppliers-title"><i class="fas fa-truck" aria-hidden="true"></i> Suppliers</h2>
+                        <p>Manage your suppliers and vendors</p>
+                        <div class="header-actions">
+                            <div class="search-box">
+                                <label for="supplier-search" class="sr-only">Search suppliers</label>
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <input type="text" id="supplier-search" name="supplier-search" placeholder="Search suppliers..." title="Search suppliers" aria-label="Search suppliers">
+                            </div>
+                            <button class="btn btn-primary" id="show-supplier-form" title="Add new supplier" aria-label="Add new supplier">
+                                <i class="fas fa-plus" aria-hidden="true"></i> Add Supplier
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Supplier Form -->
+                    <div class="form-container" id="supplier-form-container">
+                        <div class="form-header">
+                            <h3><i class="fas fa-edit" aria-hidden="true"></i> <span id="supplier-form-title">Add New Supplier</span></h3>
+                            <button class="btn btn-text" id="cancel-supplier-form" title="Cancel supplier form" aria-label="Cancel form">
+                                <i class="fas fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <form id="supplier-form" class="animated-form" aria-label="Supplier form">
+                            <input type="hidden" id="supplier-id" name="supplier-id">
+                            
+                            <div class="form-group">
+                                <label for="supplier-name" class="required">Supplier Name *</label>
+                                <input type="text" id="supplier-name" name="supplier-name" required placeholder="Enter supplier name" title="Supplier name" aria-label="Supplier name" aria-required="true">
+                                <div class="error" id="supplier-name-error" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact" class="required">Contact *</label>
+                                <input type="text" id="contact" name="contact" required placeholder="Email or phone" title="Contact information" aria-label="Contact information" aria-required="true">
+                                <div class="error" id="contact-error" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="save-supplier" title="Save supplier" aria-label="Save supplier">
+                                    <i class="fas fa-save" aria-hidden="true"></i> Save Supplier
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="cancel-supplier-form-bottom" title="Cancel" aria-label="Cancel">
+                                    <i class="fas fa-times" aria-hidden="true"></i> Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Suppliers Table -->
+                    <div class="table-wrapper">
+                        <div class="table-header">
+                            <div class="table-info">
+                                Showing <span id="supplier-count">0</span> suppliers
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="data-table" id="suppliers-table" aria-label="Suppliers list">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Contact</th>
+                                        <th scope="col">Date Added</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="suppliers-table-body">
+                                    <!-- Suppliers loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="loading" id="suppliers-loading">
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading suppliers...
+                        </div>
+                        
+                        <div class="empty-state" id="suppliers-empty">
+                            <i class="fas fa-truck-loading" aria-hidden="true"></i>
+                            <h4>No suppliers found</h4>
+                            <p>Add your first supplier to get started!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Orders Section -->
+                <section id="orders" class="section" aria-labelledby="orders-title">
+                    <div class="section-header">
+                        <h2 id="orders-title"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Orders</h2>
+                        <p>Manage purchase orders</p>
+                        <div class="header-actions">
+                            <div class="search-box">
+                                <label for="order-search" class="sr-only">Search orders</label>
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <input type="text" id="order-search" name="order-search" placeholder="Search orders..." title="Search orders" aria-label="Search orders">
+                            </div>
+                            <button class="btn btn-primary" id="show-order-form" title="Create new order" aria-label="Create new order">
+                                <i class="fas fa-plus" aria-hidden="true"></i> Create Order
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Form -->
+                    <div class="form-container" id="order-form-container">
+                        <div class="form-header">
+                            <h3><i class="fas fa-edit" aria-hidden="true"></i> <span id="order-form-title">Create New Order</span></h3>
+                            <button class="btn btn-text" id="cancel-order-form" title="Cancel order form" aria-label="Cancel form">
+                                <i class="fas fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <form id="order-form" class="animated-form" aria-label="Order form">
+                            <input type="hidden" id="order-id" name="order-id">
+                            
+                            <div class="form-group">
+                                <label for="order-supplier" class="required">Supplier *</label>
+                                <select id="order-supplier" name="order-supplier" required title="Select supplier" aria-label="Order supplier" aria-required="true">
+                                    <option value="">Select a supplier</option>
+                                </select>
+                                <div class="error" id="order-supplier-error" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="order-status" class="required">Status *</label>
+                                <select id="order-status" name="order-status" required title="Order status" aria-label="Order status" aria-required="true">
+                                    <option value="pending">Pending</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            
+                            <div class="order-items">
+                                <h4>Order Items</h4>
+                                <div id="order-items-container">
+                                    <!-- Items added here -->
+                                </div>
+                                
+                                <button type="button" class="btn btn-secondary" id="add-order-item" title="Add item" aria-label="Add item">
+                                    <i class="fas fa-plus" aria-hidden="true"></i> Add Item
+                                </button>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="save-order" title="Save order" aria-label="Save order">
+                                    <i class="fas fa-save" aria-hidden="true"></i> Save Order
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="cancel-order-form-bottom" title="Cancel" aria-label="Cancel">
+                                    <i class="fas fa-times" aria-hidden="true"></i> Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Orders Table -->
+                    <div class="table-wrapper">
+                        <div class="table-header">
+                            <div class="filter-box">
+                                <select id="order-status-filter" title="Filter by status" aria-label="Filter by status">
+                                    <option value="">All Status</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="table-info">
+                                Showing <span id="order-count">0</span> orders
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="data-table" id="orders-table" aria-label="Orders list">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Order #</th>
+                                        <th scope="col">Supplier</th>
+                                        <th scope="col">Items</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-table-body">
+                                    <!-- Orders loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="loading" id="orders-loading">
+                            <i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading orders...
+                        </div>
+                        
+                        <div class="empty-state" id="orders-empty">
+                            <i class="fas fa-clipboard" aria-hidden="true"></i>
+                            <h4>No orders found</h4>
+                            <p>Create your first order to get started!</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <p>StockSync Pro v1.0 &copy; <span id="current-year">2024</span> | Connected to: <span id="api-url-display">API</span></p>
+                    </div>
+                    <div class="system-metrics">
+                        <span class="metric"><i class="fas fa-server" aria-hidden="true"></i> Status: <span id="api-status-footer">Checking</span></span>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Confirm Action</h3>
+                <button class="close-modal" aria-label="Close modal" title="Close modal">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-cancel" title="Cancel" aria-label="Cancel">Cancel</button>
+                <button class="btn btn-danger" id="modal-confirm" title="Confirm" aria-label="Confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" role="region" aria-live="polite" aria-label="Notifications"></div>
+
+    <!-- Live Region -->
+    <div id="live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
