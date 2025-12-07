@@ -4,7 +4,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
 
 
 ### 🔧 Live Backend API: https://crud-api-4-cncd.onrender.com
-### 🌐 Live Frontend: https://macstar-543.github.io/CRUD-Frontend/
+### 🌐 Live Frontend: https://crud-frontend-miya-delta.vercel.app/
 
 # 🔗 API Endpoints Used
 ## ✅ Products Endpoints
