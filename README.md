@@ -153,17 +153,14 @@ This confirms the frontend is configured to use the deployed backend on Render.c
 #img eensh=t 2: 
  img wi=th="1 62"=height="283" alt="Screenshot 2 25-=2-05 003630" src="https://github.com/user-attachments/assets/1f7087e0-1204-482e-a 54
 
-### Screenshot 3:
-#img reens=ot 3:
- img wi=th="1 13"=height="280" alt="Screenshot 2 25-=2-05 004508" src="https://github.com/user-attachments/assets/7b182307-309a-43d2-b 74
+### Screenshot 3: 
+ < img width="1 13" height="280" alt="Screenshot 2 25-=2-05 004508" src="https://github.com/user-attachments/assets/7b182307-309" />
 
 ### Screenshot 4:
-#img reens=ot 4:
- img wi=th="1 36"=height="455" alt="Screenshot 2 25-=2-05 004639" src="https://github.com/user-attachments/assets/ef59c4da-3f34-4f76-8 14
+ < img width="1 36" height="455" alt="Screenshot 2 25-=2-05 004639" src="https://github.com/user-attachments/assets/ef59c4da-3f34-4f76-8 14" />
 
 ### Screenshot 5:
-#img reens=ot 5:
- img wi=th="1 80"=height="290" alt="Screenshot 2 25-=2-05 004740" src="https://github.com/user-attachments/assets/140403d3-b841-4ff1-8 a2
+ <img width="180" height="290" alt="Screenshot 2 25-=2-05 004740" src="https://github.com/user-attachments/assets/140403d3-b841-4ff1-8a2" /> 
 
 ### Screenshot 6:
 <img width="1055" height="261" alt="Screenshot 2025-12-05 004825" src="https://github.com/user-attachments/assets/bd0ba30f-a0d0-446c-84b9-1105a11c96ca" />
