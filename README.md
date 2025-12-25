@@ -1,15 +1,91 @@
-# StockSync Pro - Frontend Documentation
+# 📦 StockSync Pro - Inventory Management System
 
-## 📋 Overview
-StockSync Pro is a modern inventory management system frontend that connects to a deployed RESTful API backend for performing full CRUD operations on products, suppliers, and orders.
+<div align="center">
 
+![StockSync Pro](https://img.shields.io/badge/StockSync-Pro-4a6cf7?style=for-the-badge)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![API](https://img.shields.io/badge/RESTful_API-FF6B6B?style=for-the-badge)
+![Responsive](https://img.shields.io/badge/Responsive-Yes-4a7c59?style=for-the-badge)
 
-### 🔧 Live Backend API: https://crud-api-4-cncd.onrender.com
-### 🌐 Live Frontend: https://crud-frontend-miya-delta.vercel.app/
+A modern, intuitive inventory management system with real-time tracking and comprehensive CRUD operations for products, suppliers, and orders.
 
+[Live Demo](#-live-demo) • [Features](#-features) • [Installation](#-installation) • [API Documentation](#-api-documentation) • [Screenshots](#-application-screens)
+
+</div>
+
+## 🌐 Live Demo
+
+### **🔗 Live Frontend:** [https://crud-frontend-miya-delta.vercel.app/](https://crud-frontend-miya-delta.vercel.app/)
+### **🔧 Live Backend API:** [https://crud-api-4-cncd.onrender.com](https://crud-api-4-cncd.onrender.com)
+
+---
+## ✨ Features
+
+### 📊 **Dashboard**
+- Real-time inventory statistics
+- Visual cards for key metrics
+- Quick action shortcuts
+- Auto-refresh capabilities
+
+### 📦 **Products Management**
+- Complete CRUD operations
+- Stock level indicators (In Stock, Low Stock, Out of Stock)
+- Category organization
+- Real-time search and filtering
+- SKU-based inventory tracking
+
+### 🤝 **Suppliers Management**
+- Vendor database management
+- Contact information storage
+- Supplier performance tracking
+- Easy supplier search
+
+### 📋 **Orders Management**
+- Purchase order creation
+- Multi-item order processing
+- Status tracking (Pending, Processing, Completed, Cancelled)
+- Automatic total calculation
+- Supplier-product integration
+
+### 🎨 **UI/UX Features**
+- Light/Dark theme toggle
+- Collapsible sidebar
+- Responsive design (mobile, tablet, desktop)
+- Accessibility compliant (WCAG 2.1)
+- Toast notifications
+- Modal confirmations
+- Form validation
+- Loading states
+
+---
+## 🚀 Installation & Setup
+
+### **Option 1: Use Live Deployment**
+Simply visit: [https://crud-frontend-miya-delta.vercel.app/](https://crud-frontend-miya-delta.vercel.app/)
+
+### **Option 2: Local Development**
+```bash
+
+# Clone the repository
+git clone https://github.com/macstar-543/stocksync-pro.git
+
+# Navigate to project directory
+cd stocksync-pro
+
+# Open the application
+# You can use any of these methods:
+# 1. Open index.html directly in browser
+# 2. Use Live Server extension in VS Code
+# 3. Use Python simple HTTP server:
+python -m http.server 8000
+
+```
+-----
 # 🔗 API Endpoints Used
-## ✅ Products Endpoints
-+ GET /products - Retrieve all products
+
+## 📦 Products Endpointtrieve all products
 
 + POST /products - Create new product
 
@@ -17,7 +93,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
   
 + DELETE /products/:id - Delete product
 
-## ✅ Suppliers Endpoints
+## 🤝 Suppliers Endpoints
 + GET /suppliers - Retrieve all suppliers
   
 + POST /suppliers - Create new supplier
@@ -26,7 +102,7 @@ StockSync Pro is a modern inventory management system frontend that connects to 
   
 + DELETE /suppliers/:id - Delete supplier
 
-## ✅ Orders Endpoints
+## 📋 Orders Endpoints
 + GET /orders - Retrieve all orders
 + POST /orders - Create new order
 + PUT /orders/:id - Update existing order
@@ -65,46 +141,29 @@ StockSync Pro is a modern inventory management system frontend that connects to 
 
 + Search & Filter - Server-side data manipulation
 
-  ## 📱 Application Screens
-
-### Products Management
-- View all products with SKU, name, price, stock
-- Add new products with validation
-- Edit existing products
-- Delete products with confirmation
-- Stock status indicators (In Stock, Low Stock, Out of Stock)
-
-### Suppliers Management  
-- View all suppliers with contact information
-- Add new suppliers
-- Edit supplier details
-- Delete suppliers
-
-### Orders Management
-- View all orders with supplier, items, total, and status
-- Create new orders with multiple items
-- Select products and suppliers from dropdowns
-- Auto-calculate order totals
-- View order status
-- Delete orders
 
 
 # 🖼️ Screenshots of Code Using Deployed Backend
 ### Screenshot 1: API Base Configuration
-<img width="1161" height="71" alt="Screenshot 2025-12-05 001030" src="https://github.com/user-attachments/assets/0477d86e-463a-4816-84ae-257cf26670df" />
+simg nfigu=ation
+ img wi=th=" 161= height="71" alt="Screenshot 2 25-=2-05 001030" src="https://github.com/user-attachments/assets/0477d86e-463a-4816-8 ae
 This confirms the frontend is configured to use the deployed backend on Render.com
 
 ### Screenshot 2: 
-<img width="1062" height="283" alt="Screenshot 2025-12-05 003630" src="https://github.com/user-attachments/assets/1f7087e0-1204-482e-ad54-f4ef9ad4cc23" />
+#img eensh=t 2: 
+ img wi=th="1 62"=height="283" alt="Screenshot 2 25-=2-05 003630" src="https://github.com/user-attachments/assets/1f7087e0-1204-482e-a 54
 
 ### Screenshot 3:
-<img width="1113" height="280" alt="Screenshot 2025-12-05 004508" src="https://github.com/user-attachments/assets/7b182307-309a-43d2-b474-4a64b9c2e5d0" />
+#img reens=ot 3:
+ img wi=th="1 13"=height="280" alt="Screenshot 2 25-=2-05 004508" src="https://github.com/user-attachments/assets/7b182307-309a-43d2-b 74
 
 ### Screenshot 4:
-<img width="1036" height="455" alt="Screenshot 2025-12-05 004639" src="https://github.com/user-attachments/assets/ef59c4da-3f34-4f76-8c14-20dbe96de63e" />
+#img reens=ot 4:
+ img wi=th="1 36"=height="455" alt="Screenshot 2 25-=2-05 004639" src="https://github.com/user-attachments/assets/ef59c4da-3f34-4f76-8 14
 
 ### Screenshot 5:
-<img width="1280" height="290" alt="Screenshot 2025-12-05 004740" src="https://github.com/user-attachments/assets/140403d3-b841-4ff1-87a2-26a460d2a0a9" />
+#img reens=ot 5:
+ img wi=th="1 80"=height="290" alt="Screenshot 2 25-=2-05 004740" src="https://github.com/user-attachments/assets/140403d3-b841-4ff1-8 a2
 
 ### Screenshot 6:
 <img width="1055" height="261" alt="Screenshot 2025-12-05 004825" src="https://github.com/user-attachments/assets/bd0ba30f-a0d0-446c-84b9-1105a11c96ca" />
@@ -122,3 +181,33 @@ Frontend: Static hosting (GitHub Pages and vercel)
 + Database: MongoDB Atlas (via backend)
 
 + API Type: RESTful JSON API
+
+  
+
+## 🙏 Acknowledgments
+
++ Font Awesome for icons
+
++ Google Fonts for Inter font
+
++ Render for backend hosting
+
++ Vercel for frontend hosting
+
+
+
+## 📞 Support
+For support or questions:
+
+📧 Email: cabanzamia@gmail.com
+
+🐛 Report Issues
+
+💬 Create Discussion
+
+<div align="center">
+Made with ❤️ by Mia A. Cabanza
+
+⬆ Back to Top
+
+</div> ```
