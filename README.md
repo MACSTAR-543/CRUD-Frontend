@@ -145,30 +145,41 @@ python -m http.server 8000
 
 # 🖼️ Screenshots of Code Using Deployed Backend
 ### Screenshot 1: API Base Configuration
-simg nfigu=ation
- img wi=th=" 161= height="71" alt="Screenshot 2 25-=2-05 001030" src="https://github.com/user-attachments/assets/0477d86e-463a-4816-8 ae
-This confirms the frontend is configured to use the deployed backend on Render.com
+<img width="1009" height="423" alt="Screenshot 2025-12-26 104315" src="https://github.com/user-attachments/assets/47bd8ccd-df15-4539-9a2b-3350c0301e81" />
 
 ### Screenshot 2: 
-#img eensh=t 2: 
- img wi=th="1 62"=height="283" alt="Screenshot 2 25-=2-05 003630" src="https://github.com/user-attachments/assets/1f7087e0-1204-482e-a 54
+<img width="1183" height="168" alt="Screenshot 2025-12-26 104748" src="https://github.com/user-attachments/assets/02161a02-1a31-43c1-8640-951be8b433e2" />
 
 ### Screenshot 3: 
- < img width="1 13" height="280" alt="Screenshot 2 25-=2-05 004508" src="https://github.com/user-attachments/assets/7b182307-309" />
+<img width="1178" height="214" alt="Screenshot 2025-12-26 105132" src="https://github.com/user-attachments/assets/c0318172-97d5-4e12-97d1-4b38ac219a0d" />
 
 ### Screenshot 4:
- < img width="1 36" height="455" alt="Screenshot 2 25-=2-05 004639" src="https://github.com/user-attachments/assets/ef59c4da-3f34-4f76-8 14" />
+<img width="1179" height="499" alt="Screenshot 2025-12-26 105424" src="https://github.com/user-attachments/assets/49e2ea45-597d-4bab-bf74-d03632c1682d" />
+
 
 ### Screenshot 5:
- <img width="180" height="290" alt="Screenshot 2 25-=2-05 004740" src="https://github.com/user-attachments/assets/140403d3-b841-4ff1-8a2" /> 
+<img width="1188" height="457" alt="Screenshot 2025-12-26 105717" src="https://github.com/user-attachments/assets/f594881d-da69-4f47-899d-b64a2beea178" />
 
 ### Screenshot 6:
-<img width="1055" height="261" alt="Screenshot 2025-12-05 004825" src="https://github.com/user-attachments/assets/bd0ba30f-a0d0-446c-84b9-1105a11c96ca" />
+
+<img width="1004" height="322" alt="Screenshot 2025-12-26 105756" src="https://github.com/user-attachments/assets/68beedec-a7c8-46f6-8440-4d0f214b48fb" />
 
 ### Screenshot 7:
-<img width="502" height="476" alt="Screenshot 2025-12-05 005351" src="https://github.com/user-attachments/assets/e042b170-41a9-479d-9721-501f35e82e8e" />
+<img width="1071" height="260" alt="Screenshot 2025-12-26 105832" src="https://github.com/user-attachments/assets/bef42542-cf92-4077-bf6a-e2fcf97aef07" />
 
 ### Screenshot 8:
+<img width="1043" height="286" alt="Screenshot 2025-12-26 105859" src="https://github.com/user-attachments/assets/ad1d41f1-8961-4684-ba9e-53421fd733ab" />
+
+### Screenshot 9:
+<img width="951" height="317" alt="Screenshot 2025-12-26 105935" src="https://github.com/user-attachments/assets/1c12f36f-22cd-4c3e-b7fe-5bbb47b18992" />
+
+### Screenshot 10:
+<img width="1055" height="261" alt="Screenshot 2025-12-05 004825" src="https://github.com/user-attachments/assets/bd0ba30f-a0d0-446c-84b9-1105a11c96ca" />
+
+### Screenshot 11:
+<img width="502" height="476" alt="Screenshot 2025-12-05 005351" src="https://github.com/user-attachments/assets/e042b170-41a9-479d-9721-501f35e82e8e" />
+
+### Screenshot 12:
 <img width="1166" height="215" alt="Screenshot 2025-12-05 005752" src="https://github.com/user-attachments/assets/a9c80897-7cf6-4609-9541-a9e9087ea025" />
 
 ## 🌐 Deployment Information
